@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Connexion - Application Sécurisée</title>
+</head>
+<body>
+<div class="login-box">
+    <h2>Authentification</h2>
+    <form th:action="@{/authenticate}" method="post">
+        <input type="text" name="username" placeholder="Nom d’utilisateur" required>
+        <input type="password" name="password" placeholder="Mot de passe" required>
+        <button type="submit">Se connecter</button>
+    </form>
+    <p th:if="${param.error}" style="color:red;">Identifiants incorrects.</p>
+    <p th:if="${param.logout}" style="color:green;">Déconnecté avec succès.</p>
+</div>
+</body>
+</html>
